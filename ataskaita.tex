@@ -15,17 +15,18 @@
 \usepackage{wrapfig}
 \usepackage{biblatex}
 \usepackage{microtype}
+\usepackage{comment}
 
 % Titulinio aprašas
 \university{Vilniaus universitetas}
 \faculty{Matematikos ir informatikos fakultetas}
 \department{Programų sistemų bakalauro studijų programa}
 \title{Praktikos ataskaita}
-\author{Vardenis Pavardenis}
+\author{Modestas Gražys}
 \status{Programų sistemų bakalauro 4 kursas}
-\PracticeOrganization{UAB Pavyzdinė įmonė}
-\OrganizationPracticeSupervisor{direktorius Vardauskas Pavardauskas}
-\UniversityPracticeSupervisor{prof. habil. dr. Vardaitis Pavardaitis}
+\PracticeOrganization{Danske Bank A/S Lietuvos filialas}
+\OrganizationPracticeSupervisor{komandos vadovas Vytautas Mikna}
+\UniversityPracticeSupervisor{doc. Linas Petkevičius}
 \date{Vilnius, \the\year}
 
 \bibliography{bibliografija}
@@ -36,56 +37,261 @@
 \tableofcontents
 
 \sectionnonum{Įvadas}
+\begin{comment}
 Įvadas. Išdėstomi praktikos vietos pasirinkimo motyvai, praktikos užduotis, jos tikslas, spręstieji
 uždaviniai, pateikiama praktinės veiklos planas praktikos atlikimo eiga (2--3 psl.).
+\\
+\end{comment}
+\par
+Praktika Danske Bank darbovietėje nebuvo pasirinkta prieš ketvirtojo kurso antrąjį semestrą. Į Danske Bank darbovietę pradėjau darbintis dar studijuodamas antrajame kurse, o įsidarbinau, darbo sutartį pasirašiau, pabaigęs antrąjį kursą, liepos mėnesį. Todėl ši darbo ataskaita yra rašoma ne apie atliktą praktiką ketvirtojo kurso antrajame semestre, o už įgytą patirtį dirbant trečiojo kurso ir pusės ketvirtojo kurso metu, laikotarpiu nuo 2021 metų liepos mėnesio vienuoliktos dienos iki 2022 metų gruodžio mėnesio pirmos dienos.
+\par
+Apie Danske Bank siūlomą darbo vietą sužinojau sudalyvavęs virtualiose Vilniaus universiteto Matematikos ir Informatikos fakulteto karjeros dienose. Šios karjeros dienos vyko nuotoliu dėl 2021-aisiais siautusios koronaviruso pandemijos ir esančių karantino apribojimų, todėl pirmasis (greitasis) darbo pokalbis su Danske Bank atstovais vyko nuotoliu. Taip pat nuotoliu vyko ir kiti darbo pokalbiai. Tuo metu praktikos atlikimo darbovietė buvo viena iš keletos darboviečių pasirinkimo variantų, o Danske Bank pasirinkau dėl keletos priežasčių:
+\vspace{10pt}
+\begin{enumerate}
+    \item Ieškojau darbo, kuris atitiktų universitete studijuojamą profesiją, o Danske Bank siūlė tokią darbo vieta.
+    \item Darbovietė siūlė labai puikiai subalansuotą lankstumą studijų metu - darbo valandas derinamas prie studijų tvarkaraščio.
+    \item Darbovietė pasiūlė tam metui ir žinių lygiui puikų atlyginimą.
+    \item Darbovietė siūlė nemažai patogių priedų (sveikatos draudimą, nebrangius pietus, sporto salę, įvairias nuolaidas t.t.).
+    \item Darbovietės ofisas man, asmeniškai, buvo patogioje lokacijoje ir turėjau galimybę dirbti nuotoliu.
+\end{enumerate}
+\vspace{10pt}
+\par
+Todėl nuo liepos mėnesio įsidarbinau į Danske Bank A/S Lietuvos filialo robotikos skyrių (\textit{Intelligent Automation Center of Excellence - IA CoE}). 
+\par
+Darbas Danske Bank (praktika) neturėjo vienos konkrečios paskirtos užduoties - šis darbas buvo nuolatinis projektų įgyvendinimas, kurių bendrinė užduotis - skaitmeniniais įrankiais automatizuoti konkretų verslo procesą, o tikslas - automatizuojant procesus sumažinti banko išlaidas (taupyti). Šiuo atveju, verslo procesas, kuris yra tinkamas automatizavimui - tam tikra žmogaus vykdoma darbinė veikla (procesas) kibernetinėje erdvėje, kuri nereikalauja kompleksinių sprendimų priėmimo ir gali būti išskirtinai apibrėžta aiškių (nedviprasmiškų, papildomų klausimų nekeliančių) veiksmų seka. Pavyzdys:
+\vspace{10pt}
+\begin{itemize}
+    \item Surinkti klientų rekvizitų duomenis, pateiktus nekilnojamojo turto paskolų skyriaus elektroninėje pašto dėžutėje esančių laiškų prieduose (sąskaitose-faktūrose) ir paskolos užklausos identifikacinį numerį, bei sumą, patikrinti banko centrinėje sistemoje ar atliktas mėnesinis paskolos lizingo apmokėjimas (pavedimas) ir atnaujinti paskolų registrą jei taip, arba išsiųsti klientui priminimą apie laukiamą apmokėjimą elektroniniu paštu - jei ne.
+\end{itemize}
+\vspace{10pt}
+\par
+Pavyzdys verslo proceso, kuris automatizavimui, taikant įrankius su kuriais dirbau Danske Bank, netinkamas:
+\vspace{10pt}
+\begin{itemize}
+    \item Pagal asmens paskolos užklausos aplikaciją ir asmeninius duomenis nuspręsti asmens rizikos rodiklį ir pagal tai suteikti arba nesuteikti paskolos.
+\end{itemize}
+\vspace{10pt}
+\par
+Kai procesas automatizuotas - jį gali atlikti tam paskirti (virtualūs) robotai arba darbuotojas gali paleisti procesą atliekančią integruotą programą - bankas gali sutaupyti darbuotojų laiką neskirdamas jiems automatizuotos užduoties ir alokuodamas darbuotojų pajėgumus į kitas užduotis.
+\par
+Per visą darbo laiką Danske Bank darbovietėje iš viso automatizavau penkis skirtingus procesus. Trys iš šių procesų buvo automatizuoti naudojant \textit{UiPath} automatizavimo įrankį, kiti du, naudojant \textit{Python} programavimo kalbą ir \textit{Selenium} \cite{selenium} integraciją. Taip pat teko palaikyti jau esamas, kitų programuotojų parašytas, automatizacijas: taisyti iškilusias klaidas, atnaujinti automatizacijos parametrus, konfiguraciją. Be automatizacijų kūrimo ir palaikymo, kūriau įvairius automatizavimo galimybes praplėčiančius ir palengvinančius įrankius ir skaitmenines bibliotekas. Šiuos įrankius rašiau naudodamas \textit{UiPath}, \textit{Python} ir \textit{C\#} \cite{uipath,python2021python,csharp}.
+\par
+Į praktikos darbovietę įsidarbinau per Danske Bank \textit{FuturePros} programą. \textit{FuturePros} programa yra orientuota į studentų arba kvalifikaciją keičiančių darbinio amžiaus asmenų ugdymą ir vėliau, jeigu \textit{FuturePros} dalyvis atitinka Danske Bank lūkesčius, įdarbinimą. Ši programa trunka vienerius metus, tačiau dalyvis, atitikęs lūkesčius, gali būti įdarbinamas ir programai nepasibaigus. Aš buvau įdarbintas iškarto po \textit{FuturePros} programos pabaigos ir tokiu būdu "pasikėliau" kvalifikaciją iš \textit{FuturePros} studento į jaunesnįjį RPA programuotoją. Darbo praktikos laikotarpis, kuriam rašoma ši ataskaita, truko iki gruodžio pirmosios dienos, taigi per šį laikotarpį buvau ir \textit{FuturePros} studentu - programuotoju, ir jaunesniuoju RPA programuotoju. O Danske Bank darbovietėje dirbau iki 2023 metų kovo aštuntosios dienos. Iš banko išsidarbinau daugiau kvalifikacijos nepakėlęs.
+\par
+Kai pradėjau dirbti nuo 2021 metų liepos, apie automatizavimą ir RPA (\textit{Robotic Process Automation}) nieko nežinojau. Todėl iki pat vasaros pabaigos pilnu etatu mokiausi dirbti su RPA. Konkrečiai - \textit{UiPath} RPA automatizavimo įrankiu. Mokymosi metu studijavau \textit{UiPath} kūrėjų paruoštus RPA kursus ir automatizavau banko paruoštas mokomąsias (\textit{on-boarding}) užduotis. Taip pat mokiausi ir privalomų žinių dirbant banke - apie asmens duomenų konfidencialumą (\textit{GDPR}); rizikos valdymą; finansinius nusikaltimus ir skaidrumą: pinigų plovimą, papirkinėjimą, apgaules ir t.t., ir kaip šiuos nusikaltimus atpažinti; ir daug kitų aktualių temų. Nuo rugsėjo mėnesio pradėjau dirbti su realiomis, banko kasdieninėje veikloje aktualiomis, užduotimis, tačiau tuo metu automatizacijai paruoštų procesų dar negavau. Iki 2022 metų balandžio mėnesio aš rašiau automatizaciją tobulinančias bibliotekas, ruošdavau automatizavimo aplinkas kitiems programuotojams, braižydavau virtualių robotų sistemų konteksto diagramas (\textit{System Context diagrams}) ir palaikydavau jau parašytus RPA procesus. Nuo balandžio mėnesio pradėjau automatizuoti savo pirmąjį procesą savarankiškai. Dėl įvairių organizacinių problemų, šio proceso negalėjau išleisti į produkcinę aplinką iki 2022 metų spalio mėnesio (beveik pusę metų), todėl paraleliai per šį laiką parašiau ir išleidau dar du RPA procesus, bei keleta skaitmeninių bibliotekų. Vėliau dalį laiko dirbau prie dar vieno didelės apimties RPA proceso, o nuo 2022 lapkričio mėnesio ėmiau automatizuoti procesus naudodamas \textit{Python} programavimo kalbą ir \textit{Selenium} įrankį. Automatizacijos su \textit{Python} išmokau vienos "išvykos" su kolegomis metu. 2022 metų balandžio mėnesį kolegos pakvietė prisijungti į jų organizuojama \textit{Python} hakatoną. Šio hakatono tikslas buvo sukurti darbo su \textit{Python} skyriuje ypatumus: susitarti ir paruošti automatizacijų rašymo reglamentus ir geriausias praktikas; sukurti aplinką, kurioje naudotojai galėtų lengvai pasileisti ir naudoti automatizacijas; sukurti tuščio \textit{Python} projekto karkasą pagal susitartus reglamentus ir t.t. Aš, paraleliai prie paskirtų darbų, taip pat atlikau mokomąją (\textit{on-boarding}) \textit{Python} užduotį. Todėl vėliau banke dirbau ir du verslo procesus automatizavau su \textit{Python}.
+\par
+Darbas vyko pagal Agile Scrum metodologiją. Turėjome dviejų savaičių trukmės sprintus, kurių kiekvienas turėjo tam tikrą, komandos išsikeltą, tikslą. Naujas sprintas būdavo pradedamas, o senas - užbaigiamas, paprastai kas antrą trečiadienį, per sprinto planavimo susirinkimą, kurio metu komanda suplanuodavo naujojo sprinto darbų sąrašą. Dažniausiai antradieniais, dieną prieš sprinto pabaigą, būdavo daroma sprinto apžvalga ir retrospektyva. Kiekvienos dienos rytais vykdavo kasdieniniai susirinkimai (\textit{Daily Standups}), kurių metu su komanda pasidalindavome atliktų užduočių arba užduočių atlikimo eigų naujienomis, taip pat su susidurtais sunkumais ir kitomis darbo aktualijomis. Aš sprinto metu kartais pasipildydavau man paskirtą sprinto darbų sąrašą, jeigu suplanuotus darbus atlikdavau ankščiau laiko arba šie, dėl įvairių priežasčių, būdavo atidedami arba atšaukiami. Agile Scrum meistro komandoje neturėjome, todėl Scrum ceremonijas vesdavome komandoje pakaitomis. Kiekvienos ceremonijos pabaigoje būdavo sukamas "laimės" ratas, kuris išrinkdavo kitą, būsimos ceremonijos, vedėją. Tačiau tas nebuvo taikoma kasdieniams susirinkimams, šiuos vesdavo savanoris komandoje.
+\par
+Apibendrinus, praktiką atlikau Danske Bank darbovietėje, ne pagal universiteto studijuojamos programos numatytą laiką praktikai, o nuo antrojo kurso galo iki ketvirtojo kurso vidurio, o šią ataskaitą parašiau remdamasis jau įgyta patirtimi šios praktikos metu. Praktikos užduotys būdavo susijusios su verslo procesų automatizacijų įgyvendinimu skaitmeniniais įrankiais, o darbas buvo vykdomas pagal Agile Scrum metodologiją. Parašytos automatizacijos bankui sutaupydavo išlaidų.
 
-\section{Įmonės / įstaigos apibūdinimas}
+\section{Įstaigos (Danske Bank) apibūdinimas}
+
+\begin{comment}
 Įmonės/įstaigos apibūdinimas. Glaustai aprašoma įmonė/įstaiga, kurioje buvo atlikta praktika: jos
 veiklos sritis, organizacinė struktūra, teikiamos paslaugos ir kt. Apibūdinamos praktikos vietoje
 sudarytos darbo sąlygos (1--2 psl.).
 
 Skyriai gali turėti poskyrius ir smulkesnes sudėtines dalis, kaip punktus ir
 papunkčius.
+\end{comment}
 
-\subsection{Poskyris}
-Citavimo pavyzdžiai: cituojamas vienas šaltinis \cite{PvzStraipsnLt}; cituojami
-keli šaltiniai \cite{PvzStraipsnEn, PvzKonfLt, PvzKonfEn, PvzKnygLt, PvzKnygEn,
-PvzElPubLt, PvzElPubEn, PvzBakLt, PvzMagistrLt, PvzPhdEn}.
+Danske Bank yra didžiausias Danijos bankas, įkurtas 1871-aisiais, teikiantis paslaugas tiek privatiems, tiek verslo klientams. Savo internetiniame puslapyje bankas informuoja, jog vykdo veiklą aštuoniose šalyse, tačiau įvardija tik penkias šalis: Daniją, Švediją, Norvegiją, Suomiją ir Juntinei Karalystei priklausančią Šiaurės Airiją \cite{DanskeAbout, DanskeAboutLT}. Iki 2016-ųjų metų Danske Bank vykdė veiklą privatiems klientams ir Lietuvoje, o verslo klientams veikla Lietuvoje vykdyta iki 2018-ųjų metų \cite{DanskePasitraukimas}. Šiuo metu Lietuvoje, Vilniuje, veikia dideli operacijų ir skaitmeninės plėtros ofisai, kuriuose dirba apie 4200 darbuotojų, o bendrai visame pasaulyje - apie 22000 darbuotojų. Pagal internetinių naujienų portalą "Delfi", Danske Bank yra ketvirtas didžiausias darbdavys Lietuvoje \cite{DanskeDydis}.
+\par
+Danske Bank yra didelė organizacija su mišria organizacine sistema. Organizaciją galima suprasti ją skaidant į įvairius skyrius, kurie Danske Bank viduje dažniausiai vadinami \textit{Tribes} (gentys), tačiau skyrius, kuriame aš dirbau, nebuvo prisikiriamas prie \textit{Tribes}, bet skyriaus klientai dažniausiai būdavo priskiriami ir taip skyriuje klasifikuojami. Kiekvienas iš skyrių turi savo veiklos sritį banke. Skyrius, kuriame aš dirbau, yra suskirstytas pagal funkcinį organizacijos struktūros tipą: darbuotojai yra išskirstyti į komandas, beveik visos komandos yra atsakingos už produktų vystymą, likusi viena komanda - atsakinga už produkto vystymo aplinkos kūrimą ir palaikymą. Kiekviena komanda turi paskirtą darbų vadovą, o visos komandos skyriuje - skyriaus vadovą. Produkto vystymo komanda susideda iš verslo analitikų, kurie ieškodavo tinkamų automatizacijai kandidatų, rinkdavo verslo procesų reikalavimus ir šiuos aprašydamo proceso apibūdinimo dokumentuose, ir iš programuotuojų, kurie šiuos procesus automatizuodavo ir paruošdavo naudotojams. Produkto vystymo aplinkos kūrimo ir palaikymo komanda užtikrindavo, kad naudotojai galėtų naudotis programuotuojų sukurtomis automatizacijomis.
+\par
+Danske Bank teikia įvairias bankininkystės paslaugas tiek privatiems, tiek verslo klientams: paskolos ir lizingas (būstui, automobiliui, vartojimo), pensijos, investavimas, banko sąskaitų atidarymas ir laikymas, bankiniai pavedimai ir atsiskaitymai, atsiskaitymai kredito ir debeto kortelėmis ir t.t. Skyrius, kuriame aš dirbau, tiesiogiai su banko klientais paprastai nekomunikuodavo. Skyriaus klientai yra kiti Danske Bank padaliniai, kurie siekdavo sutaupyti laiko ir lėšų, pateikdami automatizacijai įvairius kompleksinių sprendimų nereikalaujančius ir aiškiai apibrėžiamus procesus. Taigi, skyriaus, kuriame aš dirbau, teikiamos paslaugos yra tokių verslo procesų automatizavimas \cite{DanskeIACoEJOB}.
+\par
+Darbas Danske Bank turi nemažai privalumų. Darbuotojai yra apdrausti dviejais sveikatos draudimais: vienas iš jų (\textit{Compensa}) yra skirtas atlyginti išlaidas patirtas dėl sveikatos problemų, profilaktikos, skiepų, psichologo konsultacijų, odontologo paslaugų ar sveikatingumo (sporto klubo, spa) išlaidų; kitas yra skirtas atlyginti žalą, patirtą dėl sveikatos sutrikdymo, (\textit{ERGO}). Danske Bank esanti maitinimo įstaiga siūlo pietus už itin palankią kainą. Kol dirbau, pietūs kainuodavo po tris eurus už porciją, o pusryčiai po vieną su puse euro. Visos kitos išlaidos už maistą dėl pietų ir pusryčių būdavo padengiamos Danske Bank lėšomis. Darbovietės ofise yra įrengta sporto salė, kurioje įvairūs treneriai veda grupines treniruotes, o registracija į šias treniruotes kainuoja simbolinę kainą (kurią tai pat gali padengti draudimas). Be grupinių treniruočių, darbovietė įvairiais kitais būdais investuoja į darbuotojų fizinę ir psichinę sveikatą. Danske Bank egzistuoja ir kuriasi įvairių veiklų klubai (dviračių sporto, stalo žaidimų, knygų), prie kurių gali prisijungti visi norintys darbuotojai. Taip pat egzistuoja ir Danske Bank choras. Ofisas taip pat turi muzikos ir pokalbių tinklalaidžių studiją, kurioje darbuotojai gali praktikuotis suplanuotu metu arba įrašyti ir transliuoti įvairias diskusijas. Ofise taip pat įrengti įvairūs žaidimų (biliardo, stalo teniso, stalo futbolo) kambariai, paruoštos konsolės \textit{PlayStation} ir įvairios knygos, žurnalai. Ofisas turi požeminę automobilių aikštelę - garažą, kuriame įrengtos specializuotos vietos dviračiams ir paspirtukams, su įkrovimo jungtimis. Šiame garaže darbuotojai gali nemokamai krautis savo elektrinius automobilius. Viename iš ofiso pastatų galima pamatyti "Vero Cafe" kavinę, o kitame "La Capital Mexican Cuisine" meksikietiškos virtuvės restoraną. Danske ofisas yra suskirstytas į tris milžiniškus pastatus: \textit{DC Pier}, \textit{DC Valley} ir \textit{DC Meadow}. Kiekvienas iš šių pastatų simbolizuoja skirtingą gamtos temą: \textit{DC Pier} - jūrą, \textit{DC Valley} - slėnį, \textit{DC Meadow} - pievą. Pagal šias temas įrengti ofiso pastatų intejerai. O subjektyviai vertinant, ofiso pastatų erdvės yra ypač draugiškos darbinei veiklai - jauki aplinka, reguliuojamojo aukščio stalai, du arba trys darbo monitoriai kiekvienai darbo vietai, izoliuotos darbo vietos ir susirinkimų kambariai. Pastatuose netgi įrengtos vietos meditacijai ar trumpam poilsio miegui. Danske Bank siūlo galimybę dirbti nuotoliu ir pasinaudoti skiriama vienkartine stipendija savam namų ofiso erdvės įsirengimui. Nuo 2022-ųjų metų, ženkliai išaugus Lietuvos infliacijos rodikliui, Danske Bank įgyvendino paramos Lietuvos darbuotojams priedą prie jau gaunamo atlyginimo, taip finansiškai padėdamas darbuotojams aukštos infliacijos periodu.
+\par
+Danske Bank siūlo itin draugišką, liberalią aplinką darbuotojams, turi modernią skandinavišką darbo kultūrą, skatina profesinį augimą, siūlo papildomus laisvadienius. Ypatingai skatina darbuotojų komandinį darbą (\textit{\#TeamUP}), atsakomybę (\textit{\#OwnIT}) ir atvirumą (\textit{\#BeOPEN}). Žmonės, dirbantys Danske Bank, yra draugiški, atviri naujoms idėjoms, supratingi ir paslaugūs.
 
-\subsection{Faktorialo algoritmas}
-
-\ref{alg:factorial} pav. pateiktas faktorialo algoritmas.
-
-\begin{algorithm}
-\begin{algorithmic}[1] % [1] padaro, kad eilutės būtų sunumeruotos
-\State $N\gets$ skaičius, kurio faktorialą skaičiuojame
-\State $F\gets 1$
-\For{$i := 2$ $to$ $N$}
-    \State $F\gets F \cdot i$
-\EndFor
-\end{algorithmic}
-\caption{Faktorialo algoritmas}
-\label{alg:factorial}
-\end{algorithm}
-
-\subsubsection{Punktas}
-\subsubsubsection{Papunktis}
-\subsubsection{Punktas}
 
 \section{Praktikos veiklos aprašymas}
+
+\begin{comment}
 Praktikos veiklos aprašymas (vienas arba keli skyriai). Aprašomas praktikos užduoties
 įgyvendinimas (pvz., atlikti projektavimo ir/ar programavimo darbai, sukurtas modelis, priimti
 sprendimai ir pan.).
+\end{comment}
 
-\subsection{Poskyris}
-\subsection{Poskyris}
+% Aprašyti overview apie atliktus pasirinktus darbus
+Kiekviena automatizacija turi po proceso apibūdinimo dokumentą (\textit{PDD}), kuriame apibūdinama, iš kokių veiksmų susideda automatizuojamas procesas. Aprašoma automatizuojamųjų sistemų eksploataciją (su vartotojo sąveikos ekrano nuotraukomis), nurodoma užsakovo, dalyko eksperto (\textit{subject matter expert - SME}), paskirtų verslo analitiko ir programuotojo kontaktai, ir kita vertinga informacija. Šiuos dokumentus banke rašo verslo analitikai, o pagal poreikius programuotojai dokumentus papildo, pakomentuodami įvairius proceso vystymo aspektus ar nurodydami naudojamus informacijos sklaidos įrankius (žemiau šiame darbe šie įrankiai plačiau pakomentuoti - API, SI, duomenų bazes ir kt.). Bendrai, PDD yra pagrindinis automatizacijos dokumentas, aprašas, gairės programuotojui - proceso "receptas".
+\par
+Automatizacijoms rašyti skyriuje buvo naudojami tokie įrankiai, kaip \textit{UiPath}, \textit{BluePrism}, \textit{Python}, \textit{AutoHotKey}. Su \textit{BluePrism} \cite{BluePrism} įrankiu teko dirbti labai nedaug, dėl dviejų priežasčių: 1. Šio įrankio skyrius atsisakė dar prieš man ateinant dirbti į banką, o procesai iš \textit{BluePrism} aplinkos buvo migruojami į \textit{UiPath}, \textit{Python} ar kitas naudojamas aplinkas; 2. Darbo su šiuo įrankiu ypatingai nemėgau ir vengiau. Dažniausiai su šiuo įrankiu buvo taisomos iškilusios klaidos jau parašytiems procesams \textit{BluePrism} aplinkoje.
+\par
+Naudojantis \textit{UiPath} automatizavimo įrankiu, banke buvo kuriamos RPA procesų automatizacijos, o kolegos dažnai, dėl paprastumo, \textit{UiPath} automatizacijas vadindavo "robotais". RPA (\textit{Robotic Process Automation}) yra programinės įrangos technologija, kuri leidžia lengvai kurti, įdiegti ir valdyti programinės įrangos robotus, kurie imituoja žmonių veiksmus sąveikaujant su skaitmeninėmis sistemomis ir programine įranga. Kaip ir žmonės, programinės įrangos robotai gali suprasti, kas rodoma ekrane, atlikti reikiamus klavišų paspaudimus, naršyti sistemas, atpažinti ir išgauti duomenis bei atlikti daugybę apibrėžtų veiksmų \cite{RPADefiniton}. Tai aprėpia tiek "prižiūrimas" (\textit{attended}), tiek "neprižiūrimas" (\textit{unattended}) automatizacijos. Neprižiūrimos automatizacijos yra savarankiškai serveriuose, dažniausiai virtualių mašinų pagalba, veikiantys robotai, kurie pagal nustatytą grafiką, be vartotojų įsikišimo, atlieka RPA programuotuojų apibrėžtus veiksmus. Kiekvienas iš šių robotų turi po specialiai robotui priskirtą kompiuterinės įrangos vartotoją, su kurio prisijungimais robotai pasiekia visas reikalingas banko sistemas, siunčia paštu ataskaitas ir t.t. Prižiūrimi robotai yra integruotos programinės įrangos, kurias banko darbuotojai įsidiegia į savo darbo kompiuterius ir "keliais klavišų paspaudimais" gali leisti programai atlikti procesus, kuriuos darbuotojui užtruktų atlikti ilgiau. Tokie procesai dažniausiai būna daug mąstymo nereikalaujantys, nuobodūs ir, palyginus su neprižiūrimų robotų procesais, nedideli. \cite{RPARDA} Dėl paprastumo, banke su kolegomis neprižiūrimus procesus vadindavome RPA (\textit{Robotic Process Automation}), o prižiūrimus procesus RDA (\textit{Robotic Desktop Automation}). Oficialiai, RDA automatizacijos yra RPA automatizacijų poaibis, kuris aprėpia vartotojų naudojamas automatizacijos programas savo kompiuteriuose (prižiūrimas automatizacijas).
+\par
+Programavimo kalba \textit{Python} taip pat leidžia rašyti automatizacijas. Tokios automatizacijos banke visada būdavo prižiūrimos ir atitikdavo RDA robotų tipus, nes kol dirbau skyriuje, nei kolegos, nei aš neradome arba nesugalvojome optimalaus būdo \textit{Python} kalba parašytas programas pritaikyti neprižiūrimoms užduotims. Dėl paprastumo, \textit{Python} automatizacijas su kolegomis vadindavome "skriptais" (\textit{scripts}). Kiti kolegos naudodavo ir kitus įrankius skriptams rašyti, pavyzdžiui, \textit{AutoHotKey}. Automatizuodami vartotojo sąsają su \textit{Python} dažnai naudodavome ir automatinių testų rašymo įrankį \textit{Selenium}. Būtent dėl \textit{Selenium} teikiamos internetinių naršyklių integracijos (\textit{drivers}) ir \textit{XPATH} \cite{xpath} navigacijos vartojo sąsajos automatizacija tapdavo įmanoma.
+\par
+Šiame dokumento skyriuje žemiau pateikiu informaciją apie aspektus, kaip šios automatizacijos būdavomo įgyvendinamos, kokias technologijas procesai naudodavo. Taip pat pateikiu du pavyzdžius, apibūdinančius į produkcinę aplinką klientams išleistus procesus, kuriuos rašiau dirbdamas Danske Bank. Kokias technologijas pasirinkau naudoti rašydamas šiuos procesus, kodėl, kaip vyko darbas ir kaip produkto vystymas sekėsi.
+
+\subsection{Automatizacijų rašymo aspektai}
+
+Paprastai, roboto sąveika su išorinėmis, automatizuojamomis, sistemomis aprėpia: duomenų įeigą, duomenų išeigą ir vartotojo sąsajos navigaciją. Tiek duomenų išeigai, tiek įeigai, kol dirbau Danske Bank, naudodavau įvairias technologijas skirtas sistemų komunikacijai:
+\vspace{10pt}
+\begin{itemize}
+    \item \textbf{Aplikacijų programavimos sąsajas} (\textbf{\textit{API}}) \cite{de2017api}. Naudodamas Rest API funkcionalumą \cite{masse2011rest}, galėdavau tiek gauti, tiek įrašyti duomenis, pagal proceso reikalavimus aprašytus PDD.
+    \item \textbf{Sistemų integracijos komponentus} (\textbf{\textit{SI}}). Analogas API technologijai vykdant informacijos sklaidą. Esminis skirtumas tarp SI ir API: SI naudoja SOAP \cite{gudgin2003soap} užklausas, o API - REST užklausas.
+    \item \textbf{Duomenų bazes} \cite{maier1983theory}. SQL užklausas \cite{melton1993understanding} naudojau tam, kad būtų galima pagal proceso reikalavimus gauti informaciją apie duomenų bazėje esančius įrašus, juos filtruoti, rikiuoti, keisti, pridėti arba šalinti duomenis.
+    \item \textbf{Elektroninių pašto dėžučių turinius}. Galimas atvejis, kada automatizuojamas procesas turi funkcionalumą, kuris reikalauja elektroninių pašto dėžučių manipuliacijos - informacijos esančios laiškuose nuskaitymo, priedų atsisiuntimo, laiškų siuntimo ir t.t. Naudodamas tokių įrankių-protokolų, kaip: \textit{Microsoft Exchange} \cite{elfassy2013mastering}, \textit{IMAP} \cite{rfc3501}, \textit{POP3} \cite{rfc1939}, \textit{SMTP} \cite{rfc821} integracijas, galėdavau atlikti užduotis susijusiąs su elektroninio pašto dėžučių manipuliacija. Taip pat, elektroninio pašto funkcionalumą galima automatizuoti naudojantis vartotojo sąsajos automatizacija, per tokias elektroninio pašto aplikacijas kaip \textit{Microsoft Outlook}, \textit{Mozilla Thunderbird}, tačiau toks automatizacijos įgyvendimas nėra rekomenduotinas ir apie tokius elektroninio pašto automatizavimo įgyvendinimus Danske Bank robotikos skyriuje aš nesu girdėjęs. Elektroninio pašto automatizacija per vartotojo sąsają nėra rekomenduotina dėl specifinių vartotojo sąsajos automatizavimo problemų, kurias aprašiau \ref{sec:ui-problems} skyriuje.
+    \item \textbf{Centrines kompiuterijos sistemas} (\textit{mainframes}, \textit{terminals}). Įvairiems banko operacijų tikslams Danske Bank naudoja pasenusią programinę įrangą (\textit{legacy software}) - centrinę sistemą. Dažnas procesas, kuris yra automatizuojamas Danske Bank, naudoja centrinę sistemą ir dažnai darbuotojams tenka susidurti su šios sistemos automatizacija, tačiau man daug šios sistemos automatizuoti neteko - tik keleta funkcionalumų padedant kolegoms ir darant mokomąsias užduotis. \textit{UiPath} siūlo integruotus tokio tipo sistemų automatizacijos veiksmus. Kaip tokios sistemos automatizuojamos naudojant \textit{Python} - neturiu žinių.
+\end{itemize}
+
+\subsubsection{UiPath RPA grafinės vartotojo sąsajos automatizacija}
+
+Norint automatizuoti konkrečius veiksmus vartotojo sąsajoje, reikalinga sąveika su įvairiais langais, mygtukais, išskleidžiamaisiais sąrašais ir daugeliu kitų vartotojo sąsajos elementų. Vienas iš vartotojo sąsajos elementų atpažinimo būdų yra jų padėtis ekrane. \textit{UiPath} įrankis siūlo vartotojo sąsajos automatizaciją įgyvendinti naudojant būtent šiame įrankyje integruotus parinkiklius (\textit{selectors}). Parinkikliuose saugomi grafinės vartotojo sąsajos elemento ir jo tėvinių elementų atributai \textit{XML} fragmento pavidalu \cite{selectors}. Pagal šiuos parinkiklio atributus \textit{UiPath} robotas gali surasti norimą vartotojo sąsajos elementą ekrane ir atlikti pasirinktus veiksmus: paspausti mygtuką, įvesti tekstą, nuskaityti tekstą, pasirinkti sąrašo elementą ir t.t. Parinkiklius galima keisti pagal reikalavimus - padaryti juos dinaminius (priklausomus nuo kintamųjų), nustatyti kaip robotui į juos atsižvelgti ir t.t. Veiksmai gali būti atliekami naudojant skirtingus sąveikos būdus: galima tekstą vesti, mygtukus spausti naudojant aparatinės įrangos įvykius (\textit{hardware events}), siunčiant lango žinutes (\textit{send window messages}), simuliuojant paspaudimą arba įvedimą (\textit{simulate type or click} arba naudojant \textit{Chromium API}, kai automatizuojamos \textit{Google Chrome} arba \textit{Microsoft Edge} naršyklės \cite{input-methods}.
+
+\subsubsection{Python grafinės vartojo sąsajos automatizacija}
+
+\textit{Python} integruotos vartotojo sąsajos automatizacijos įrankių neturi, tačiau galima pasinaudoti išorinėmis bibliotekomis ir išoriniais įrankiais norint pritaikyti šį funkcionalumą. \textit{Selenium} automatinių testų kūrimo įrankis turi tokią parinktį. Naudojant \textit{Selenium} internetinių naršyklių integracijas galima simuliuoti internetinės naršyklės langą ir sąveikauti su elementais pagal jų buvimo vietą lange. Ši buvimo vieta gali būti nustatoma naudojantis \textit{XPATH}, kadangi \textit{XML} pagrindu atkuriamas automatizuojamos internetinės aplikacijos vartotojo sąsajos \textit{HTML} kodas buvo pasiekiamas naudojant \textit{Selenium}. Šis įrankis siūlo įvairius sąveikos su grafinės vartotojo sąsajos elementais: paspaudimą, duomenų įvestį, duomenų nuskaitymą ir t.t.
+\par
+Jeigu grafinė vartotojo sąsaja yra naudojama tik duomenims išgauti, galima naudoti duomenų ištraukėjų technologijas, kaip \textit{BeautifulSoup} ar \textit{lxml} \cite{web-scrapping}, kurios veikia greičiau ir naudoja mažiau skaičiavimo resursų, lyginant su \textit{Selenium}.
+
+\subsubsection{Vartotojo sąsajos automatizacijos problemos}\label{sec:ui-problems}
+
+Turėti galimybę automatizuoti grafinę vartotojo sąsają yra puiku, tačiau tai yra, ko gero, mažiausiai rekomenduotinas būdas automatizuoti procesą. Jeigu tam pačiam rezultatui išgauti galima panaudoti alternatyvą (\textit{API}, \textit{SI}, duomenų bazę) vietoje vartotojo sąsajos, visada tiek aš, tiek Danske Bank kolegos, rinkdavomes alternatyvą. Automatizuodami grafinę vartotojo sąsają susiduriame su daugeliu papildomų specifinių problemų arba išskirtinių atvejų (\textit{exceptions}), kurių kitos technologijos fundamentaliai neturi. O į šias problemas atsižvelgti būtina:
+\vspace{10pt}
+\begin{enumerate}
+    \item \textbf{Priklausomybė nuo grafinės vartotojo sąsajos}. Sistema, kuri automatizuoja vartotojo sąsajos parinkiklius arba \textit{XPATH} yra tiesiogiai priklausoma nuo automatizuojamos sistemos vartotojo sąsajos. Todėl jeigu automatizuojamos sistemos vartotojo sąsaja atnaujinama arba pakeičiama - būtina atnaujinti ir iš naujo testuoti bei verifikuoti automatizaciją. Naudojant alternatyvas, kurios yra nepriklausomos nuo vartotojo sąsajos, pavyzdžiui \textit{API}, šios rizikos išvengiama. Jeigu automatizuojamos sistemos vartotojo sąsaja sugenda, sugenda ir sistemos automatizacija. Priešingai - alternatyvas, vietoje vartotojo sąsajos, naudojanti automatizacija toliau gali dirbti nepaisydama gedimo.
+    \item \textbf{Vartotojo sąsajos elementų panaudojamumas}. Norint sėkmingai sąveikauti su vartotojo sąsajos elementais, būtina užtikrinti, kad su šiais elementais sąveika yra įmanoma: elementas turi būti aktyvus, nepaslėptas, matomas ekrane. Todėl būtina atsižvelgti į elementų krovimo laiką - programuoti elementų pasirodymo laukimo laiko limitus, uždelsimus. Vartotojo sąsajos elementų krovimo nesklandumai gali iškilti dėl įvairiausių priežasčių: nestabilios vartotojo sąsajos, interneto ryšio problemų ir t.t.
+    \item \textbf{Vartotojo sąsajos elementų dinamiškumas}. Kartais gali pasitaikyti atveju, kada vartotojo sąsajos elementai neturi pastovios vietos: ši vieta yra apibrėžiama pagal tam elementui būdingą vietos priklausomybę arba blogiausiu atveju - nedeterministiškai. Esant tokiam atvejui, jeigu įmanoma, reikia atsižvelgti į šį elemento nepastovumą, kad kuriama automatizacija būtų patikima.
+    \item \textbf{Įgyvendinimo sudėtingumas}. Patikimas vartotojo sąsajos automatizavimas yra gerokai sudėtingesnis, lyginant su daugelio kitų alternatyvų naudojimu. Norint parašyti patikimą vartotojo sąsajos automatizaciją, reikia atsižvelgti į visus aukščiau aprašytus aspektus, todėl vartotojo sąsajos automatizacija turi daugybę užprogramuotų išskirtinių atvejų (\textit{exceptions}). Tokios automatizacijos testavimas reikalauja labai daug laiko ir daug skirtingų testavimo bylų atvejų. Net ir turint šiuos resursus, labai dažnai ne visos galimos klaidos būna įvertinamos, todėl procesas dažnai būna modifikuojamas, taisant klaidas, jau net ir produkcinėje aplinkoje.
+\end{enumerate}
+\vspace{10pt}
+\par
+Automatizuota vartotojo sąsaja yra mažiau stabili ir patikima, lyginant su automatizuotomis alternatyvomis. O dėl sisteminės klaidos, dažnai automatizuoto proceso konkrečios bylos rezultatas negaunamas. Tada reikia kartoti bylos įgyvendinimą arba atlikti ją "rankomis". Todėl sprendimas automatizuoti vartotojo sąsaja turi būti priimtas, jeigu kitos alternatyvos neegzistuoja (arba yra papildomai apmokestintos, o klientas atsisako už jas mokėti).
+
+\subsection{UiPath RPA automatizacijos pavyzdys}
+
+Šiame poskyriuje aprašysiu pirmąją į produkcinę aplinką išleistą \textit{UiPath} RPA automatizaciją (robotą), kurią atlikau dirbdamas Danske Bank. Pagal proceso apibūdinimo dokumentą (PDD), šis robotas nebuvo didelės apimties - S dydžio, pagal marškinėlių dydžio įvertį (\textit{T-shirt size estimator} \cite{TshirtSize}), todėl šio proceso įgyvendinimas turėjo užtrukti iki 80 valandų. 
+\par
+Procesas yra RDA tipo, todėl tai reiškia, kad vartotojas turi pats pasileisti automatizuotą procesą. Vystydamas šį produktą bendradarbiavau su vienu programuotoju iš Danijos, kuris buvo atsakingas už vieną iš sistemų, kurią robotas naudojo vykdydamas procesą (patikslinimas: robotas naudodavo šios sistemos duomenų bazę). Šis programuotojas minėtoje sistemoje sukūrė mygtuką, kurį paspaudus, robotas pradėdavo darbą - tokiu būdu sistemos naudotojas galėdavo pasileisti automatizaciją.
+\par
+Procesas trumpai gali būti apiūdinamas taip:
+\vspace{10pt}
+\begin{enumerate}
+    \item\label{item:robot-start} Vartotojui paspaudus roboto mygtuką, bylos numeris, ties kuria šis darbuotojas dirba, atsiduria roboto bylų eilėje.
+    \item\label{item:sql} Pasinaudodamas bylos numeriu, robotas vykdo \textit{SQL} užklausą, kad gautų duomenis apie bylą iš duomenų bazės.
+    \item\label{item:portal} Tarp gautų bylos duomenų yra bylos kliento numeris, kuriuo pasinaudojęs, robotas iš banko vidaus intraneto - portalo, gauna daugiau reikalingų duomenų apie klientą.
+    \item\label{item:processing} Robotas duomenis atitinkamai apdirba.
+    \item\label{item:form} Apdirbtus reikalingus duomenis robotas suveda į vienos banko intraneto aplikacijos formą ir išsaugo.
+    \item\label{item:robot-end} Byla baigiama.
+\end{enumerate}
+\vspace{10pt}
+\par
+Mygtukas ir mygtuko funkcionalumas, kuriuo paleidžiamas šis robotas, pagal \ref{item:robot-start} aukščiau esančio sąrašo punktą, buvo sukurtas kolegos - programuotojo iš Danijos. Šis mygtukas kviečia \textit{UiPath} robotų valdymo sistemos \textit{API} ir naudojasi \textit{API} funkcionalumu taip įdėdamas konkrečios bylos numerį į roboto bylų eilę. Roboto bylų eilei aš priskyriau paleidiklį (\textit{trigger}), kuris suveikia kiekvieną kartą, kai bylų eilėje atsirasdavo naujas bylos numeris ir taip paleidžia robotą. Eilės paleidiklio papildomai programuoti nereikėjo - tokį funkcionalumą įvesti leidžia \textit{UiPath} robotų valdymo sistema. Robotą parašiau taip, kad paleidimo metu (\textit{initialization phase}) robotas atsidarytų banko intranetą - portalą, kad sistema pradėtų krautis dar robotui nepradėjus darbo su konkrečia byla ar bylomis.
+\par
+SQL užklausą, kuri minima \ref{item:sql} punkte, man atsiuntė kolega - programuotojas iš Danijos, todėl šios užklausos aš nerašiau. Pritaikiau robotą, kad pagal bylos numerį robotas įvydytų šią užklausą į reikiamą duomenų bazę ir gautų reikiamos bylos duomenis. Taip pat atsižvelgiau į išskirtines situacijas, kada duomenų bazė gali duomenų negrąžinti arba grąžinti tuščią lentelę ir pritaikiau robotą atpažinti šias klaidas. Vėliau programavau, kad robotas gautus duomenis priskirtų atitinkamai pavadintiems kintamiesiems. Tarp gautų duomenų yra kliento numeris, kuris yra naudojamas vėliau gauti daugiau bylos duomenų iš banko vidaus intraneto - portalo, todėl šio numerio kintamojo man reikėjo kitam roboto funkcionalumui įgyvendinti.
+\par
+Banko vidaus intranetą - portalą, apie kurį pasakojau \ref{item:portal} punkte, automatizavau pasitelkęs vartotojo sąsajos automatizavimo aspektus, nes banko intraneto aplikacijai, kurią naudoja šis robotas, bankas alternatyvios sistemos (\textit{API}, \textit{SI} komponento) pasiūlyti neturi. Kiekvienam roboto navigacijos žingsniui ir sąveikai su vartotojo sąsajos elementais intranete priskyriau po elemento pasirodymo laukimo laiko limitą. Taip pat kiekvienai atidaromai aplikacijai ir pasikeičiančiui langui - verifikavimą, kad laukiama vartotojo sąsaja pasirodė. Visas galimas problemas aprašiau išskirtiniais atvejais ir gausiai ištestavau. Paprastai banko intranetas jau būdavo pakrautas ir paruoštas naudojimui, kai robotas pasiekia šį funkcionalumą. Robotas, nuskaitęs reikiamus duomenis iš banko intraneto, gali toliau pradėti reikalingą duomenų apdirbimą pagal reikalavimus, bet portalo robotas dar neišjungia, dėl galimai tolimesnio jo naudojimo apdirbant kitas bylas.
+\par
+Gautų duomenų apdirbimas, iš \ref{item:processing} punkto, nėra didelis. Programavau, kad pagal reikalavimus robotas vienam konkrečiam skaitiniui duomenų bazės įrašui išrinktų pagal reikalavimus tinkamą kategoriją, kurią vėliau reikia įvesti į bylos formą. Taip pat šioje funkcionalumo fazėje aprašiau gautų duomenų validavimą: jeigu kuris nors įrašas netenkina PDD apibrėžtų reikalavimų, robotas net neatsidaro bylos formos, o iš karto praneša apie klaidą ir baigia einamąją bylą pranešdamas apie klaidą.
+\par
+Bylos forma, trumpai paminėta \ref{item:form} punkte, taip pat buvo vartotojo sąsajos pavidalo, be galimų alternatyvų, todėl šios bylos laukų įvedimą automatizavau pagal vartotojo sąsajos automatizavimo aspektus. Tačiau neprogramavau roboto, kad šią formą robotas atsidarytų prieš pradėdamas darbą su visomis bylomis, nes kiekviena byla reikalauja individualiai išsaugotos formos, todėl kiekvienai bylai yra paruošiama nauja formos instancija. Kadangi tai netaikoma banko inranetui - portalui, šią sistemą robotas pasileidžia prieš darbo su bylomis pradžią ir tą pačią intraneto instanciją naudoją visoms bylų eilėje esančioms byloms. Sąveikas su formos laukais taip pat automatizavau atsižvelgdamas į galimas iškilti problemas dėl darbo su vartotojo sąsaja. Šią formą klientas pasiekia atlikęs keletos žingsnių navigaciją banko vidinėje sistemoje. Tačiau aš išsiaiškinau, kad ši forma (tiksliau formos šablonas, kuris vėliau pildomas) gali būti pasiekiama per formos nuorodą. Norėdamas išvengti nereikalingos navigacijos robotui, programavau, kad robotas internetinę naršyklę, kurioje pildoma forma, atsidarytų iškarto įvedęs formos šablono nuorodą. Problema, su kuria susidūriau vystydamas būtent šią automatizacijos fazę: klientas nenorėjo, kad formos būtų išsaugomos, kol procesas buvo programuojamas, o formų sistema neturi testinės versijos, todėl negalėdavau testuoti formos išsaugojimo funkcionalumo. Vėliau, pabaigus rašyti procesą, kai pristatinėjau roboto veikimą klientui, būtent šioje vietoje robotas ir užstrigo - tada su klientu ir verslo analitiku išsiaiškinome, kad proceso reikalavimai nėra išbaigti, nes nebuvo pagalvota apie formoje esančius privalomus laukus, kurių robotui iš pradžių nebuvo paskirta užpildyti. Todėl po šio nesėkmingo pristatymo, PDD buvo pildomas ir papildomas funkcionalumas robotui buvo kuriamas.
+\par
+Bylos užbaigimas, \ref{item:robot-end} punktas, "nominuojamas" bylos formos išsaugojimu. Vėliau robotas ima kitos bylos numerį esantį bylų eilėje ir kartoja visus proceso žingsnius. Kai visos bylos, esančios eilėje, užbaigiamos, robotas užpildo \textit{excel} failą - raportą, apie bylų pildymo būsenas - pavykusias bylas ir klaidas. O vėliau šį raportą elektroniniu paštu išsiunčia klientui. Tada banko intranetas - portalas uždaromas ir procesas užbaigiamas.
+\vspace{10pt}
+\par
+Šio proceso automatizacijos metu išmokau geriau naudotis \textit{UiPath} automatizacijos įrankiu, taip pat dalyvavau pirmuose savarankiškuose susitikimuose su suinteresuotomis šalimis, kada atsakomybė apie proceso įgyvendinimą, klausimai apie techninius aspektus ir kaip mano sprendimai tenkins kliento reikalavimus priklausė nuo mano komunikacijos su suinteresuotomis šalimis įgūdžių. Šis projektas, šiuos įgūdžius neabejotinai patobulino. Ir pirmąjį kartą dirbant banke, aš buvau atsakingas už produkto pristatymą klientui ir realios vertės kūrimą.
+\par
+Tačiau šis procesas buvo labiausiai problematiškas dėl pastovių sistemų prieigos teisių problemų, suinteresuotų šalių pasyvumo (dažniausiai skiriant prieigos teises) ir reikalavimų pildymo dėl nepakankamai efektyvaus proceso įgyvendinimo planavimo.
+\par
+Ši automatizacija buvo išleista praėjus maždaug šešiems mėnesiams nuo automatizacijos vystymo pradžios, o pats vystymas bendrai man užtruko apie mėnesį laiko. Iš kolegų girdėjau pranešimus apie skyriaus vadovės nepasitenkinimą, dėl šio proceso išleidimo pasyvumo. Per šiuos šešis mėnesius į pokalbius su suinteresuotomis šalimis įsitraukė ne vienas verslo analitikas (kaip įprasta) ar darbų vadovas.
+
+\subsection{Python automatizacijos pavyzdys}
+
+Šiame poskyriuje aprašysiu pirmąją į produkcinę aplinką išleistą \textit{Python} automatizaciją (skriptą), kurią atlikau dirbdamas Danske Bank. Pagal proceso apibūdinimo dokumentą (\textit{PDD}), šis skriptas nebuvo didelės apimties - S (arba M, nepamenu tiksliai) dydžio, pagal marškinėlių dydžio įvertį (\textit{T-shirt size estimator}), todėl šio proceso įgyvendinimas turėjo užtrukti iki 80 (arba 160) valandų. Šią automatizaciją rašiau suomių komandai, todėl visus mygtukų ir užrašų sukurtoje vartotojo sąsajoje pavadinimus keičiau į suomių kalbą. Dėl tikslumo, komentuodamas šį procesą, vengsiu mygtukų ar užrašų pavadinimų, nes suomių kalbos nemoku.
+\par
+Skriptai yra RDA tipo procesų atitikmenys, todėl tai reiškia, kad vartotojas turi pats pasileisti automatizuotą procesą. Ankstesniame skyriuje kalbėjau apie vieną išvyką su kolegomis, kurios metu dirbome prie \textit{Pyhton} aplinkos bankui ir standartų kūrimo. Per šią išvyką kolega - sistemų aplinkos inžinierius (\textit{DevOps}) - sukūrė aplikaciją - aplinką, kuria naudodamiesi vartotojai gali paleisti norimus skriptus. Per šią aplinką mano sukurtos automatizacijos naudotojas gali paleisti ir šią, mano sukurtą, automatizaciją.
+\par
+Procesas trumpai gali būti apibūdinamas taip:
+\vspace{10pt}
+\begin{enumerate}
+    \item\label{item:script-start} Vartotojui paspaudus automatizacijos aktyvavimo mygtuką skriptų aplinkoje, atsidaro skripto vartotojo sąsaja, kurioje vartotojas įveda bylos duomenis ir paspaudžia duomenų apdorojimo mygtuką.
+    \item\label{item:input} Automatizacija nuskaito įvetus duomenis iš vartotojo sąsajos.
+    \item\label{item:api1} Automatizacija, naudodama įvestus duomenis, siunčia užklausą į banko vidinių \textit{API} sistemą, siekdama konvertuoti įvestų duomenų tipą.
+    \item\label{item:api2} Automatizacija, naudodama konvertuotus duomenis, siunčia užklausą į banko vidinių \textit{API} sistemą, siekdama gauti kitus duomenis, kurių reikia pildant proceso bylos formos šabloną, šiuos duomenis gauna.
+    \item\label{item:si} Automatizacija, naudodama konvertuotus duomenis, siunčia užklausą į banko vidinį \textit{SI} komponentą, per kurį įmanoma pasiekti reikiamus duomenis, kurių reikia pildant proceso bylos formos šabloną, ir šiuos duomenis gauna.
+    \item\label{item:script-form} Automatizacija užpildo pagal reikalavimus priskirtus, proceso bylos formos šablono laukus.
+    \item\label{item:script-end} Byla baigiama, tačiau skriptas nėra uždaromas. Vartotojas gali išsisaugoti užpildytą formą ir pradėti darbą su kita byla, naudodamas tą pačią automatizacijos instanciją.
+\end{enumerate}
+\vspace{10pt}
+\par
+Vartotojo sąsają, kurią miniu \ref{item:robot-start} punkte, sukūriau naudodamas \textit{Pyhton} programavimo kalbos \textit{PyQt5} biblioteką. O tiksliau - šios bibliotekos vartotojo sąsajos kūrimo įrankį. Vartotojo sąsajos dizaino malonumas akiai nebuvo prioritetas, tačiau jis privalėjo būti aiškus ir lakoniškas, kad vartotojui iškiltų kuo mažiau klausimų naudojantis skriptu. Todėl verslo analitiko sukurtą dizainą aptarinėjome ir bandėme pritaikyti jį, kad jo naudojimas būtų kuo paprastesnis.
+\par
+Vartotojo sąsaja (\ref{item:input} punktas) turi septynis įvesties laukus, kuriuose vartotojas gali įvesti klientų numerius. Nei vienas iš šių laukų nėra privalomas, tačiau atitinkamai pagal įvesties kiekį priklauso formoje pildomų duomenų kiekis. Du iš šių laukų yra skirti įvesti platesnę informaciją į formą apie skolininkus, kiti likę penki - įkeisto turto davėjų numerius. Vartotojo sąsajos funkcionalumą programavau taip, kad šiuos klientų numerius skriptas į tolesnį apdorojimą paduotų per \textit{Python} žodyno duomenų tipą (kuris panašus į \textit{JSON}).
+\par
+Gautiems klientų numeriams pagal procesą reikia gauti platesnės informacijos, kuri pasiekiama per banko \textit{API} sistemas, tačiau užklausoms į šias sistemas reikia konvertuoti gautus klientų numerius į kitokį, \textit{API} suprantamą, formatą, todėl pasinaudojęs kitu \textit{API}, kuris šiuos numerius konvertuoja, pagal punktą \ref{item:api1}, programavau, kad šis skriptas gautų konvertuotas klientų numerių reikšmes, kurios vėliau naudojamos gaunant informaciją apie įvestus klientus. Teko pasinaudoti kolegų parašytu kodu, kuris naudoja \textit{Python requests} biblioteką, kad kodas galėtų siųsti \textit{HTTP} užklausas nurodytiems adresams. O vėliau gautos užklausos rezultatą interpretuoti ir pasiekti konvertuotą kliento numerį. Žinoma, aprašiau ir išskirtinius atvejus, kurie galimi, kai duomenys nėra gaunami: vartotojas neturi teisinės prieigos prie aprašytos duomenų konversijos; \textit{API} talpinantis serveris neveikia; gautas kliento numeris nėra teisingas ir t.t.
+\par
+Vėliau rašiau kodą, kuris sudaro užklausą ir kviečia \ref{item:api2} punkte aprašytą \textit{API}, naudodamas konvertuotus klientų numerius, taip pat įvertindamas išskirtinius atvejus. Taip skriptas pasiekdavo duomenis apie klientus, kurie būdavo surašomi į proceso bylos formą. Darbas su \textit{API} užklausomis ir atsako interpretavimais nebuvo sudėtingas, greitai padaromas ir aiškus.
+\par
+Panaši technologija į \textit{API} - \textit{SI} komponentas, paminimas \ref{item:si} punkte, kuris taip pat buvo kviečiamas pasinaudojus \textit{Python requests} biblioteka, naudojant \textit{HTTP} protokolą. Esminis skirtumas, lyginant su \textit{API}: užklausos yra vykdomos naudojant ne \textit{REST API}, o \textit{SOAP}. Taip pat, užklausos "kūnas" (\textit{body}) yra siunčiamas ne \textit{JSON} formatu, o paremtas \textit{XML} ir yra vadinamas "voku" (\textit{envelope}). O gaunamas užklausos rezultatas taip pat paremtas \textit{XML} formatu. Todėl programavau, kad rezultatas būtų interpretuojamas ir reikiami duomenys apie klientą būtų pasiekiami, naudodamas \textit{XPATH}. Užklausos vokas yra laikomas kaip vieno simbolių eilutės kintamojo reikšmė su vietos rezervuarais (\textit{placeholders}), į kuriuos, prieš siunčiant užklausą, įstatomi reikiami duomenys, pagal kuriuos identifikuojamas klientas. Pagrindinis iš tokių duomenų - konvertuotas kliento numeris. Šio funkcionalumo įgyvendinimui užtrukau ilgiau negu programuodamas \textit{API} naudojimą. Reikėjo laiko išsiaiškinti, kokio tiksliai užklausos voko man reikia, kaip vykdyti \textit{SOAP} užklausas, kokius tiksliai duomenis ir į kurias voko vietas įvesti ir t.t. O užklausos rezultatas, kad ir paremtas \textit{XML}, yra gaunamas baitais, todėl šiuos baitus skriptas, naudodamasis \textit{Python xmltree} biblioteka, konvertuoja į \textit{XML} objektą, o vėliau išrenka kliento duomenis su \textit{XPATH}. Žinoma, rašydamas šį funkcionalumą pritaikiau kodą ir galimoms klaidoms, kurios yra tapačios \textit{API} galimoms klaidoms.
+\par
+Formos šabloną, minimą \ref{item:script-form} punkte, procesas pildo, kai visi reikalingi duomenys yra turimi. Formos šablonas yra paprasčiausiai \textit{Microsoft Word} dokumento šablonas (\textit{.dot} formato), kurio pildymo laukai pažymėti specialiais žymėjimais, pagal kuriuos skriptas atskiria, į kokį lauką, kokius duomenis įvesti. Įvedimą automatizavau naudodamas \textit{Windows COM} funkcionalumu. Sunkumas, naudojant šią technologiją yra tai, kad nežinoma, kaip tiksliai vadinasi formos \textit{COM} laukai, kurie \textit{Python} pasiekiami per \textit{COM} objekto atributus. O tiksliau šių laukų pavadinimai ir yra objekto atributų pavadinimai, kurie nėra tiksliai žinomi, o dokumentacijos tam neradau. Todėl užtrukau laiko, kol išsiaiškinau, kaip pasiekti šiuos laukus.
+\par
+Užpildžius formą, byla yra oficialiai baigiama, bet kaip ir minėjau \ref{item:script-end} punkte, skriptas nėra uždaromas. O vartotojas gali tęsti darbą su kita byla - leisti skriptui užpildyti naują formos šabloną. Skriptas yra išjungiamas paprasčiausiai uždarant skripto vartotojo sąsajos langą.
+\vspace{10pt}
+\par
+Šio proceso automatizacijos metu išmokau geriau naudotis \textit{Python} programavimo kalba automatizuodamas procesus, taip pat glaudžiai bendradarbiavau su paskirtu verslo analitiku. Šį procesą parašiau gana greitai ir nustebau, kad proceso kodo apžvalgos susitikime kolegos labai puikiai įvertino šios automatizacijos įgyvendinimą. Šis procesas buvo pirmoji (iš dviejų) mano rašytų automatizacijų su \textit{Python} kalba, o kadangi prieš tai nebuvau nieko su \textit{Python} automatizavęs, išskyrus mokomąją užduotį, neturėjau didelio pasitikėjimo iš darbo vadovo ir kolegų, todėl teko ilgokai palaukti, nuo pirmojo prašymo pradėti darbus su \textit{Python}, iki šio produkto vystymo užklausos gavimo.
+\par
+Šio proceso vystymas bendrai praėjo sklandžiai, be didelių problemų. Buvo atvejis, kada verslo reikalavimai buvo papildyti, tačiau šie pakitimai nebuvo dideli ir daug laiko jų įgyvendinimas netruko. Nors ši automatizacija man buvo pirmasis oficialus produkto kūrimas su \textit{Python} kalba, tai buvo vienas sklandžiausių banke atliktų projektų.
 
 \sectionnonum{Rezultatai, išvados ir pasiūlymai}
+
+\begin{comment}
 Rezultatai, išvados ir pasiūlymai. Išdėstomi pagrindiniai darbo rezultatai ir išvados, praktikos
 darbo privalumai ir trūkumai, aprašomos įgytos žinios ir patirtis praktikos metu, duodamas
 universitete įgytų žinių atitikimo praktikos užduočiai atlikti įvertinimas, pateikiami argumentuoti
 pasiūlymai, kaip geriau organizuoti darbo ir valdymo procesus praktikos atlikimo vietoje ir
 mokymą Universitete (1--2 psl.).
+\end{comment}
+
+\textbf{Pagrindiniai darbo Danske Bank rezultatai:}
+\vspace{10pt}
+\begin{itemize}
+    \item Pristatytos trys \textit{UiPath} RPA automatizacijos.
+    \item Pristatytos dvi \textit{Python} automatizacijos.
+    \item Pristatyti keletas darbo įrankių - bibliotekų. 
+    \item Prisidėta programuojant ir palaikant dar daugiau procesų.
+    \item Išmokta naudotis \textit{UiPath} automatizavimo įrankiu.
+    \item Praplėstos \textit{Python} programavimo kalbos žinios.
+    \item Sužinota apie Agile Scrum darbo metodologiją.
+    \item Patobulinti problemų sprendimo įgūdžiai.
+    \item Patobulinti komunikacijos su suinteresuotomis šalimis įgūdžiai.
+    \item Patobulinti darbo komandoje įgūdžiai.
+    \item Sužinota daugiau apie korporatyvinio darbo ypatumus, veiklas.
+    \item Praplėstas pažinčių tinklas.
+\end{itemize}
+\vspace{10pt}
+\par
+\textbf{Išvados:}
+\vspace{10pt}
+\begin{itemize}
+    \item Norint išmokti praktinių tam tikros veiklos įgūdžių - reikia atlikti šiuos praktinius įgūdžius: norint išmokti \textit{Python}, reikia spręsti problemas su \textit{Python}, norint išmokti Agile Scrum, reikia aktyviai dalyvauti ir pačiam vykdyti Agile Scrum veiklas ir t.t.
+    \item Norint spręsti konkrečią problemą, reikia drąsiai dirbti sprendžiant būtent tą konkrečią problemą ir vengti veiklos, kuri prie sprendimo neatveda (pavyzdžiui, kalbėti apie tai, kaip reikia išspręsti konkrečią problemą).
+    \item Darbas korporacijoje yra labai patogus.
+\end{itemize}
+\vspace{10pt}
+\par
+\textbf{Darbo praktikos privalumai:}
+\vspace{10pt}
+\begin{itemize}
+    \item Išmokstama realybėje naudinga ir pritaikoma patirtis (visi išvardinti rezultatai ir išvados).
+    \item Praplėčiamas naudingų pažinčių tinklas.
+    \item Gaunamas atlyginimas (mano atveju).
+\end{itemize}
+\vspace{10pt}
+\par
+\textbf{Darbo praktikos trūkumai:}
+\vspace{10pt}
+\begin{itemize}
+    \item Ne visada gali pasitaikyti patinkanti praktika.
+\end{itemize}
+\vspace{10pt}
+\par
+Universitete įgyjau žinių apie įvairių skaitmeninių sistemų ir įrankių veikimą, kuriuos pritaikiau dirbdamas Danske Bank. Taip pat ir apie programavimo kalbas. Vieną, iš naudotų kalbų, praktiškai taikiau dirbdamas Danske Bank. Taip pat praktiškai taikiau universitete girdėtų geriausių sistemos projektavimo rekomendacijas, kurios padėjo rašyti nesudėtingai palaikomas, suprantamas automatizacijas. 
+\par
+Pačio darbo organizuotumas buvo tinkamas ir geras, sunku būtų atrasti kokią rekomendaciją darbo banke patobulinimui. Nebent sušvelninti sistemų prieigos teises, dėl šių teisių sukeliamų problemų. Kadangi ši ataskaita rašyta už įgytą patirtį ankščiau, ne per alokuotą darbo praktikos laiką, todėl apie pačio darbo praktikos modulio organizuotumą plačiau pakalėti negaliu, nes tiesiogiai šiame modulyje nedalyvavau.
 
 % Bibliografija (jeigu yra ką ten dėti)
 \printbibliography[heading=bibintoc]
@@ -93,33 +299,30 @@ mokymą Universitete (1--2 psl.).
 % Sąvokų apibrėžimai ir santrumpų sąrašas sudaromas tada, kai darbo tekste
 % vartojami specialūs paaiškinimo reikalaujantys terminai ir rečiau sutinkamos
 % santrumpos.
-%\sectionnonum{Sąvokų apibrėžimai}
-%\sectionnonum{Santrumpos}
+\sectionnonum{Sąvokų apibrėžimai}
+\begin{itemize}
+    \item \textbf{RPA (\textit{Robotic Process Automation})} - programinės įrangos technologija, kuri leidžia lengvai kurti, įdiegti ir valdyti programinės įrangos robotus, kurie imituoja žmonių veiksmus sąveikaujant su skaitmeninėmis sistemomis ir programine įranga. Kaip ir žmonės, programinės įrangos robotai gali suprasti, kas rodoma ekrane, atlikti reikiamus klavišų paspaudimus, naršyti sistemas, atpažinti ir išgauti duomenis bei atlikti daugybę apibrėžtų veiksmų.
+    \item \textbf{RDA (\textit{Robotic Desktop Automation})} - RPA automatizacijų poaibis, kuris aprėpia vartotojų naudojamas automatizacijos programas savo kompiuteriuose (prižiūrimas automatizacijas).
+    \item \textbf{"Prižiūrima" (\textit{attended}) automatizacija} -  integruota programinės įranga, kurią banko darbuotojas įsidiegia į savo darbo kompiuterį ir ”keliais klavišų paspaudimais” gali leisti programai atlikti procesus, kuriuos darbuotojui užtruktų atlikti ilgiau. Tokie procesai dažniausiai būna daug mąstymo nereikalaujantys, nuobodūs ir, palyginus su neprižiūrimų robotų procesais, nedideli.
+    \item \textbf{"Neprižiūrima" (\textit{unattended}) automatizacija} - savarankiškai serveriuose, dažniausiai virtualių mašinų pagalba, veikiantis robotas, kuris pagal nustatytą grafiką, be vartotojų įsikišimo, atlieka RPA programuotuojų apibrėžtus veiksmus. Kiekvienas iš šių robotų turi po specialiai robotui priskirtą kompiuterinės įrangos vartotoją, su kurio prisijungimais robotai pasiekia visas reikalingas banko sistemas, siunčia paštu ataskaitas ir t.t.
+    \item \textbf{Skriptas} - automatizacija parašyta \textit{Python} kalba arba kitomis skriptų kalbomis (pavyzdžiui, \textit{AutoHotKey}). RDA automatizacijų atitikmuo.
+    \item \textbf{Sistemos konteksto diagrama (\textit{System Context diagram})} - diagrama vaizduojanti visus išorinius subjektus, kurie gali sąveikauti su sistema. Tokia diagrama vaizduoja sistemą centre, be jos vidinės struktūros detalių, apsuptą visų sąveikaujančių sistemų, aplinkos ir sistemų veiklos. Sistemos konteksto diagramos tikslas yra sutelkti dėmesį į išorinius veiksnius ir įvykius, į kuriuos reikėtų atsižvelgti kuriant visą sistemos reikalavimų ir apribojimų rinkinį \cite{SystemContextDiagrams}.
+    \item \textbf{PDD (\textit{Process Description Document})} - dokumentas, kuriame apibūdinama, iš kokių veiksmų susideda automatizuojamas procesas. Aprašoma automatizuojamųjų sistemų eksploataciją (su vartotojo sąveikos ekrano nuotraukomis), nurodoma užsakovo, dalyko eksperto (\textit{subject matter expert - SME}), paskirtų verslo analitiko ir programuotojo kontaktai, ir kita vertinga informacija. Šiuos dokumentus banke rašo verslo analitikai, o pagal poreikius programuotojai dokumentus papildo, pakomentuodami įvairius proceso vystymo aspektus ar nurodydami naudojamus informacijos sklaidos įrankius (žemiau šiame darbe šie įrankiai plačiau pakomentuoti - API, SI, duomenų bazes ir kt.). Bendrai, PDD yra pagrindinis automatizacijos dokumentas, aprašas, gairės programuotojui - proceso "receptas".
+    \item \textbf{SME (\textit{Subject Matter Expert})} - dalyko ekspertas.
+    \item \textbf{Byla (\textit{Case})} - konkretus proceso vykdomos užduoties atvejis. Byla nr.1 - proceso įgyvendinimas kliento nr. 1 atveju, byla nr. 2 - proceso įgyvendinimas kliento nr. 2 atveju ir t.t.
+    \item \textbf{Proceso bylų eilė (\textit{Queue})} - skaitmeninė eilė talpinanti paruoštas vykdymui bylas (arba bylų numerius).
+    \item \textbf{Paleidiklis (\textit{Trigger})} - leidžia atlikti užduotis iš anksto suplanuotu būdu, reguliariais intervalais (laiko paleidikliai) arba kai į eiles įtraukiami nauji elementai (eilių paleidikliai) \cite{triggers}.
+\end{itemize}
 
-% Priedai. Pateikiama pagalbinė medžiaga: didelės schemos, lentelės, paveiksliukai,
-% kurie reikalingi pateikiamam darbui aprašyti ir pristatyti.
-\appendix{Neuroninio tinklo struktūra}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{img/MLP}
-    \caption{Paveikslėlio pavyzdys}
-    \label{img:mlp}
-\end{figure}
-
-
-\appendix{Eksperimentinio palyginimo rezultatai}
-% tablesgenerator.com - converts calculators (e.g. excel) tables to LaTeX
-\begin{table}[H]\footnotesize
-  \centering
-  \caption{Lentelės pavyzdys}
-  {\begin{tabular}{|l|c|c|} \hline
-    Algoritmas & $\bar{x}$ & $\sigma^{2}$ \\
-    \hline
-    Algoritmas A  & 1.6335    & 0.5584       \\
-    Algoritmas B  & 1.7395    & 0.5647       \\
-    \hline
-  \end{tabular}}
-  \label{tab:table example}
-\end{table}
+\sectionnonum{Santrumpos}
+\begin{itemize}
+    \item IA CoE - Intelligent Automation Center of Excellence
+    \item RPA - Robotic Process Automation
+    \item RDA - Robotic Desktop Automation
+    \item PDD - Process Description Document
+    \item SME - Subject Matter Expert
+    \item API - Application Programming Interface
+    \item SI - System Integration
+\end{itemize}
 
 \end{document}
